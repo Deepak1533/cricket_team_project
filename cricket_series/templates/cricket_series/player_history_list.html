@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Players page</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'cricket_series/css/bootstrap.css'%}">
+</head>
+<body>
+  <script src="{% static 'cricket_series/js/jquery.js'%}"></script>
+  <script src="{% static 'cricket_series/js/popper.js'%}"></script>
+  <script src="{% static 'cricket_series/js/bootstrap.js'%}"></script>
+
+  {% block content %}
+  <h1>Player History</h1>
+  {% if object_list %}
+  <ul>
+    {% for player in object_list %}
+      {{ player.palyer.first_name }}
+      <li>
+        <img src="http://127.0.0.1:8000/media/media/review.jpeg" />
+        {{ player.player_image.url }}
+        <a href="{{ player.get_absolute_url }}">{{ player.first_name }}</a> ({{player.jersey_number}})
+        }
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no Palyers.</p>
+  {% endif %}       
+{% endblock %}
+
+</body>
+</html>
+
+
+
