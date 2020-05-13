@@ -9,12 +9,13 @@ from django.conf import settings
 class State(models.Model):
 	"""docstring for ClassName"""
 	state_name = models.CharField(max_length=100)
+	state_code = models.IntegerField(blank=True, null=True)
 
 class Team(models.Model):
 	"""docstring for ClassName"""
 	team_name = models.CharField(max_length=250, blank=False)
 	# identifier = models.CharField(max_length=200)
-	logoUri = models.URLField(max_length=500, default=None)
+	logoUri = models.ImageField(upload_to='media', null=True, blank=True)
 	club_state = models.ForeignKey(State, default=None)
 	points = models.IntegerField(blank=True, default=None)
 

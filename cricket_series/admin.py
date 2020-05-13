@@ -6,6 +6,7 @@ from cricket_series.models import (Player_History,
 								   Team,
 								   Player_Matchs_History,
 								   Match,
+								   State
 								   )
 
 # Register your models here.
@@ -34,3 +35,8 @@ class MatchAdmin(admin.ModelAdmin):
 
 	def get_team_one(self, team):
 		return team.team_name
+
+@admin.register(State)
+class StateAdmin(admin.ModelAdmin):
+	"""docstring for StateAdmin"""
+	list_display =('id', 'state_name', 'state_code')
